@@ -98,4 +98,5 @@ The CLI tool requires API keys for both OpenWeather and locationIQ geocode servi
 
 - Add unit tests
 - Implement native cli select feature
+- Implement CI/CD pipeline using github actions
 - Refactor
