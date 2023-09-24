@@ -22,9 +22,9 @@ npm install -g weather-cli
 ### Running the project locally
 
 - Clone the project
-- `cd <rootdir>` and run `npm install` 
+- `cd <rootdir>` and run `npm install`
 - Run `ts-node ./src/cli.ts <command>`
-    - Alternatively to use the `weather-cli` command locally, in the root directory run `npm link` to globally install the package (don't forget to run `npm unlink` when you're done)
+  - Alternatively to use the `weather-cli` command locally, in the root directory run `npm link` to globally install the package (don't forget to run `npm unlink` when you're done)
 
 ### All available commands
 
@@ -73,6 +73,7 @@ weather-cli paris france -hr --stat
 ```bash
 weather-cli chicago -dy
 ```
+
 ![daily command result](https://res.cloudinary.com/payne/image/upload/v1695541885/chingu%20readme%20images/daily-command-result.png)
 
 ## Configuration
@@ -93,10 +94,11 @@ The CLI tool requires API keys for both OpenWeather and locationIQ geocode servi
 - dotenv
 - @inquirer/select
 
-
 ## To do
 
 - Add unit tests
 - Implement native cli select feature
 - Implement CI/CD pipeline using github actions
+- Implmenet feature to manage api keys
+- Add more descriptive error messages
 - Refactor
