@@ -141,7 +141,6 @@ const inputSanitizers = (
       hasTerseWeatherSetApiKeyCmd?.value !== props[idx] &&
       hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
-      console.log("fucker1");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -164,7 +163,6 @@ const inputSanitizers = (
         verbCmd?.name === cliInputType.HELP &&
         props[idx + 1])
     ) {
-      console.log("fucker2");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -188,7 +186,6 @@ const inputSanitizers = (
       hasVerbGeocodeSetApiKeyCmd?.value !== props[idx] &&
       hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
-      console.log("fucker3");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -202,7 +199,6 @@ const inputSanitizers = (
     }
 
     if (inputCmdPrefix !== -1 && inputCmdPrefix <= 2 && !terseCmd && !verbCmd) {
-      console.log("fucker4");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -223,7 +219,6 @@ const inputSanitizers = (
         hasVerbWeatherSetApiKeyCmd?.value === props[0]) &&
       !props[1]
     ) {
-      console.log("fucker5");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
