@@ -165,7 +165,6 @@ export const formatOpenweatherRes = (
           summary: `Expect a day of ${daily[dyIdx].weather[0].description}`,
         };
 
-        console.log(statTerse, statVerb);
 
         const stats =
           statTerse || statVerb
