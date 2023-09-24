@@ -1,4 +1,4 @@
-import { RequestOptions, request } from "https";
+import { request } from "https";
 import { openweatherConfig } from "../utils/config";
 import { openweatherResponse } from "../types";
 

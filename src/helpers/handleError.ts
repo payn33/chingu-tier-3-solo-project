@@ -1,15 +1,5 @@
 import { errorResponse } from "./formatConsoleResponses";
 
-// export class FileNotFoundError extends Error {
-//   isFileNotFoundError: boolean;
-//   constructor(message: string) {
-//     super(message || "File not found");
-//     this.name = "FileNotFoundError";
-//     this.isFileNotFoundError = true;
-//     Error.captureStackTrace(this, FileNotFoundError);
-//   }
-// }
-
 export class RequestError extends Error {
   isRequestError: boolean;
   constructor(message?: string) {

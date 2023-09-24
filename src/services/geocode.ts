@@ -1,6 +1,5 @@
 import { geocodeConfig } from "../utils/config";
-import { RequestError, handleError } from "../helpers/handleError";
-import { RequestOptions, request } from "https";
+import { request } from "https";
 import { geocodeResponse } from "../types";
 
 export const getCoordinates = async (
