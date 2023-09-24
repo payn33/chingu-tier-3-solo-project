@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["ES6"],
+    "module": "Node16",
+    "resolveJsonModule": true,
+    "moduleResolution": "Node16",
+    "allowJs": true,
+    "rootDir": "./src",
+    "outDir": "build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "build/**/*"],
+  "include": ["**/*.ts", "**/*.d.ts"]
+  // "files": []
+}

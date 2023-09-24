@@ -1,0 +1,32 @@
+{
+  "name": "chingu-tier-3-weather-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./cli.ts",
+    "build": "npm install && tsc",
+    "start": "rm -rf ./build && npm run build && node build/cli.js"
+  },
+  "bin": {
+    "weather-cli": "build/cli.js"
+  },
+  "files": [
+    "build"
+  ],
+  "types": "types.d.ts",
+  "keywords": [],
+  "author": "payn33",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@inquirer/select": "^1.2.11",
+    "dotenv": "^16.3.1"
+  }
+}
