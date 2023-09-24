@@ -1,5 +1,5 @@
 {
-  "name": "weather-cli",
+  "name": "chingu-weather-cli",
   "version": "1.0.0",
   "description": "",
   "main": "build/cli.js",
