@@ -24,7 +24,7 @@ npm install -g weather-cli
 - Clone the project
 - `cd <rootdir>` and run `npm install` 
 - Run `ts-node ./src/cli.ts <command>`
-    - Alternatively to use the `weather-cli` command locally, in the root directory run `npm link` to globally install the package
+    - Alternatively to use the `weather-cli` command locally, in the root directory run `npm link` to globally install the package (don't forget to run `npm unlink` when you're done)
 
 ### All available commands
 
