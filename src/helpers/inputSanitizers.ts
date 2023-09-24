@@ -3,6 +3,7 @@ import {
   terseInputCommandsArr,
   cliInputType,
   cliErrorMessages,
+  setApiKeyCmds,
 } from "../utils/constants";
 
 const specialCharsRegex = /[!@#$%^&*()~,.?":{}|<>]/g;
@@ -44,12 +45,32 @@ const inputSanitizers = (
   const terseCmdsArr = [] as { name: string; value: string }[];
   const verboseCmdsArr = [] as { name: string; value: string }[];
 
-  const hasTerseSetApiKeyCmd = terseInputCommandsArr.find((ctx) => {
-    return ctx.name === cliInputType.APIKEY;
+  const hasTerseGeocodeSetApiKeyCmd = terseInputCommandsArr.find((ctx) => {
+    return (
+      ctx.value === setApiKeyCmds.geocode.terse ||
+      ctx.value === setApiKeyCmds.geocode.terse
+    );
   });
 
-  const hasVerbSetApiKeyCmd = verboseInputCommandsArr.find((ctx) => {
-    return ctx.name === cliInputType.APIKEY;
+  const hasVerbGeocodeSetApiKeyCmd = verboseInputCommandsArr.find((ctx) => {
+    return (
+      ctx.value === setApiKeyCmds.geocode.verb ||
+      ctx.value === setApiKeyCmds.geocode.verb
+    );
+  });
+
+  const hasTerseWeatherSetApiKeyCmd = terseInputCommandsArr.find((ctx) => {
+    return (
+      ctx.value === setApiKeyCmds.openweather.terse ||
+      ctx.value === setApiKeyCmds.openweather.terse
+    );
+  });
+
+  const hasVerbWeatherSetApiKeyCmd = verboseInputCommandsArr.find((ctx) => {
+    return (
+      ctx.value === setApiKeyCmds.openweather.verb ||
+      ctx.value === setApiKeyCmds.openweather.verb
+    );
   });
 
   for (let idx = 0; idx < props.length; idx++) {
@@ -115,9 +136,12 @@ const inputSanitizers = (
       inputCmdPrefix === 0 &&
       !terseCmd &&
       !verbCmd &&
-      hasTerseSetApiKeyCmd?.value !== props[idx] &&
-      hasVerbSetApiKeyCmd?.value !== props[idx]
+      hasTerseGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasVerbGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseWeatherSetApiKeyCmd?.value !== props[idx] &&
+      hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
+      console.log("fucker1");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -140,6 +164,7 @@ const inputSanitizers = (
         verbCmd?.name === cliInputType.HELP &&
         props[idx + 1])
     ) {
+      console.log("fucker2");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -155,12 +180,15 @@ const inputSanitizers = (
       idx === 0 &&
       inputCmdPrefix === 0 &&
       terseCmd?.name !== cliInputType.HELP &&
-      hasTerseSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseWeatherSetApiKeyCmd?.value !== props[idx] &&
       idx === 0 &&
       inputCmdPrefix === 0 &&
       verbCmd?.name !== cliInputType.HELP &&
-      hasVerbSetApiKeyCmd?.value !== props[idx]
+      hasVerbGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
+      console.log("fucker3");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -174,6 +202,7 @@ const inputSanitizers = (
     }
 
     if (inputCmdPrefix !== -1 && inputCmdPrefix <= 2 && !terseCmd && !verbCmd) {
+      console.log("fucker4");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -188,10 +217,13 @@ const inputSanitizers = (
 
     if (
       idx === 0 &&
-      (hasTerseSetApiKeyCmd?.value === props[0] ||
-        hasVerbSetApiKeyCmd?.value === props[0]) &&
+      (hasTerseGeocodeSetApiKeyCmd?.value === props[0] ||
+        hasVerbGeocodeSetApiKeyCmd?.value === props[0] ||
+        hasTerseWeatherSetApiKeyCmd?.value === props[0] ||
+        hasVerbWeatherSetApiKeyCmd?.value === props[0]) &&
       !props[1]
     ) {
+      console.log("fucker5");
       return {
         error: true,
         errorMessage: cliErrorMessages.INVALID_INPUT_COMMAND.message,
@@ -203,7 +235,6 @@ const inputSanitizers = (
         verboseCmds: [],
       };
     }
-
   }
 
   for (let idx = 0; idx < props.length; idx++) {
@@ -216,10 +247,12 @@ const inputSanitizers = (
     if (
       idx === 0 &&
       !terseCmd &&
-      hasTerseSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseWeatherSetApiKeyCmd?.value !== props[idx] &&
       idx === 0 &&
       !verbCmd &&
-      hasVerbSetApiKeyCmd?.value !== props[idx]
+      hasVerbGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
       city = props[idx];
     }
@@ -227,10 +260,12 @@ const inputSanitizers = (
     if (
       idx === 1 &&
       !terseCmd &&
-      hasTerseSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasTerseWeatherSetApiKeyCmd?.value !== props[idx] &&
       idx === 1 &&
       !verbCmd &&
-      hasVerbSetApiKeyCmd?.value !== props[idx]
+      hasVerbGeocodeSetApiKeyCmd?.value !== props[idx] &&
+      hasVerbWeatherSetApiKeyCmd?.value !== props[idx]
     ) {
       state = props[idx];
     }
